@@ -1,3 +1,5 @@
+# This is fork of original extension's fork which i updated to fix few issues here and there and make it work with the latest 1.5.* Automatic1111.
+
 ### Language
 [中文](README.cn.md)   
 [日本語](README.jp.md)  

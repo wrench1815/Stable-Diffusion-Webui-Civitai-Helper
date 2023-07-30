@@ -510,6 +510,27 @@ onUiLoaded(() => {
                 // get all card nodes
                 cards = extra_network_node.querySelectorAll(".card");
                 for (let card of cards) {
+                    /* 
+                        alright, I figured it out.
+                        The easiest way to fix the duplication of buttons is to just remove the buttons if they already exist.
+                        Why? well, we're already recalculating them. So, if they exist, they're old and need to be removed.
+                        Which i believe code was already doing but was not able to properly find the nodes.
+                     */
+                    let nodes_exist = card.querySelector(".actions .additional");
+                    if (nodes_exist) {
+                        let ul_node = card.querySelector(".actions .additional ul");
+                        if (ul_node) {
+                            // remove ul node
+                            nodes_exist.removeChild(ul_node);
+                        }
+                        let aTag = nodes_exist.querySelector("a");
+                        if (aTag) {
+                            // remove a node
+                            nodes_exist.removeChild(aTag);
+                        }
+                    }
+                        
+
                     //metadata_buttoncard
                     metadata_button = card.querySelector(".metadata-button");
                     //additional node
